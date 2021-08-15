@@ -1,0 +1,84 @@
+.header-top-link{
+	background: #282923;
+	position: relative;
+	.custom-navbar{
+		.nav-link{
+			color: rgba(255,255,255,.55);
+			padding-right: .5rem;
+			padding-left: .5rem;
+			&:hover{
+				color: #282923;
+				background: gray;
+			}
+		}
+	}
+	@include media-breakpoint-down(sm) {
+		.custom-navbar{
+			justify-content: center;
+		}
+	}
+}
+.header-navbar{
+	background: #563D7C!important;
+	.navbar{
+		.navbar-brand{
+			img{
+				width: 60px;
+			}
+		}
+		.search-form{
+			display: flex;
+			button{
+				background: white;
+				color: black;
+				&:hover{
+					background: #282923;
+					color: white;
+				}
+			}
+		}
+		@include media-breakpoint-down(sm) {
+			.search-form{
+				display: none!important;
+			}
+		}
+		.nav-item{
+			position: relative;
+		}
+		.nav-item-action{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			.nav-link{
+				position: relative;
+			}
+			.custom-toggler{
+				color: rgba(255,255,255,.55)!important;  
+				padding-top: 5px;
+				color: white;
+				cursor: pointer;
+				width: 20px;
+				&:hover{
+					color: white!important;
+				}
+			}
+		}
+		.sub-menu{
+			position: absolute;
+			top: 100%;
+			text-align: center;
+			width: 100%;
+			border: 1px solid lightgray;
+			background: white;
+			display: none;
+			padding: 8px;
+			z-index: 1;
+			.nav-link{
+				color: black;
+			}
+		}
+	}
+}
+.header-menu-bar{
+
+}
