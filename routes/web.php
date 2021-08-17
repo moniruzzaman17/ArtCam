@@ -20,3 +20,14 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::group([
+    'prefix' => 'admincp'], function () {
+        Route::get('/', 'admin\Auth\LoginController@showLoginForm')->name('admin.login');
+        
+        Route::post('login', 'admin\Auth\LoginController@login')->name('admin.login.action');
+        Route::post('logout', 'admin\Auth\LoginController@logout')->name('admin.logout');
+
+        Route::group(['middleware' => ['admin.route.session']], function () {
+            Route::get('admin/key/{session_id}', 'admin\IndexController@index')->name('admin.home');
+        });
+    });
