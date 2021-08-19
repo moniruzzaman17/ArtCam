@@ -23,7 +23,7 @@ class CreateCoreConfigDataTable extends Migration
             $table->text('value')
             ->nullable()
             ->comment = 'Config Value';
-
+            
             $table->timestamps();
         });
     }

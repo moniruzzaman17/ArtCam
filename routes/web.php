@@ -13,13 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+Route::get('/', 'HomeController@index')->name('home');
+Route::get('/about', 'staticpages\StaticPageController@about')->name('about');
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
 Route::group([
     'prefix' => 'admincp'], function () {
         Route::get('/', 'admin\Auth\LoginController@showLoginForm')->name('admin.login');

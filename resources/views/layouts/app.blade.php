@@ -30,9 +30,9 @@
 <body>
     <section id="particles-js"></section>
     @include('includes.header')
-    <main class="container">
+    <div class="container">
         @yield('content')
-    </main>
+    </div>
     @include('includes.footer')
     <script type="text/javascript" src="{{ asset('js/jquery-3.5.1.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>

@@ -1,34 +1,18 @@
 <div class="row w-100 m-auto product-card">
-  @for($i=1; $i<11; $i++)
+  @foreach ($products as $key => $product)
   <div class="col-sm-6 col-md-3">
     <div class="card">
-      <img src="{{asset('medias/sample'.$i.'.jpg')}}">
+      <img src="{{asset('medias/'.$product->medias[0]->image)}}">
       <div class="card-content">
         <a href="#">
-          <h6>Wooden CNC Bed Design</h6>
-          <a href="#" class="card-category" download="{{asset('medias/sample'.$i.'.jpg')}}">Download Now <i class="fas fa-chevron-right fa-sm"></i></a>
+          <h6>{{$product->name}}</h6>
+          <a href="{{asset('medias/'.$product->medias[0]->image)}}" class="card-category" download>Download Now <i class="fas fa-download" aria-hidden="true"></i></a>
         </a>
       </div>
     </div>
   </div>
-  @endfor
+  @endforeach
+  <div class="product-pagination d-flex justify-content-center" id="product_default_page_pagination" style="margin-top: 40px;">
+    {{ $products->links() }}
+  </div>
 </div>
-<script>
-  // download image
-function forceDownload(url, fileName){
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET", url, true);
-    xhr.responseType = "blob";
-    xhr.onload = function(){
-        var urlCreator = window.URL || window.webkitURL;
-        var imageUrl = urlCreator.createObjectURL(this.response);
-        var tag = document.createElement('a');
-        tag.href = imageUrl;
-        tag.download = fileName;
-        document.body.appendChild(tag);
-        tag.click();
-        document.body.removeChild(tag);
-    }
-    xhr.send();
-}
-</script>

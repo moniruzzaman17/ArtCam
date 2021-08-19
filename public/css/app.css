@@ -5180,7 +5180,6 @@ section#particles-js h1 {
   position: absolute;
   top: 100%;
   text-align: center;
-  width: 100%;
   border: 1px solid lightgray;
   background: white;
   display: none;
@@ -5243,7 +5242,7 @@ section#particles-js h1 {
 }
 
 .product-card .card-category {
-  font-size: 22px;
+  font-size: 16px;
   line-height: 20px;
   letter-spacing: 2px;
   margin: 15px;

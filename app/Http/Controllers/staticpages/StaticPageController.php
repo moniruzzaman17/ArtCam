@@ -1,14 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\staticpages;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Category;
-use App\MediaGallery;
 use App\CoreConfigData;
-use App\Product;
-
-class HomeController extends Controller
+class StaticPageController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -25,11 +22,11 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function about()
     {
-        $products = Product::with('medias')->where('visibility',1)->paginate(30)->onEachSide(0);
+        $about = CoreConfigData::where('name','about')->first()->value;
 
-        // dd($config);
-        return view('welcome',compact('products'));
+
+        return view('staticpages.about',compact('about'));
     }
 }

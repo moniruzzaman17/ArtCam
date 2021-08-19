@@ -19,6 +19,7 @@
             <strong>{{ Auth::guard('admin')->user()->name }}</strong>
           </span>
           <span class="user-role">{{ Auth::guard('admin')->user()->email }}</span>
+          <div class="internet-availablity text-danger"></div>
         </div>
       </div>
       <!-- sidebar-header  -->
