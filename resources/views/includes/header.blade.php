@@ -18,8 +18,9 @@
   <div class="container">
     <nav class="navbar navbar-expand-lg navbar-dark">
       <a class="navbar-brand d-flex align-items-center" href="{{route('home')}}"><img src="{{asset('images/'.$config['logo'])}}" alt=""> <h6 class="pl-2">{{$config['appName']}}</h6></a>
-      <form class="form-inline search-form my-2 my-lg-0">
-        <input class="form-control mr-sm-2 p-2" type="search" placeholder="Search" aria-label="Search">
+      <form action="{{route('search')}}" method="post" class="form-inline search-form my-2 my-lg-0">
+        @csrf
+        <input class="form-control mr-sm-2 p-2" name="keyword" type="search" placeholder="type keyword(s) here" aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
       </form>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,14 +33,14 @@
           @if($category->subCategories)
           <li class="nav-item">
             <div class="nav-item-action">
-              <a class="nav-link" href="#">{{$category->name}}</a><span class="dropdown-toggle custom-toggler"></span>
+              <a class="nav-link" href="{{route('category',["type"=>"category","id"=>$category->entity_id])}}">{{$category->name}}</a><span class="dropdown-toggle custom-toggler"></span>
             </div>
             <div class="sub-menu">
               <ul class="navbar-nav">
                 <li class="nav-item">
                   <div class="nav-item-link">
                     @foreach ($category->subCategories as $key => $subCategory)
-                    <a class="nav-link" href="#">{{$subCategory->name}}</a>
+                    <a class="nav-link" href="{{route('category',["type"=>"subcategory","id"=>$subCategory->entity_id])}}">{{$subCategory->name}}</a>
                     @endforeach
                   </div>
                 </li>

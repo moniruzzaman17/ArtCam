@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/about', 'staticpages\StaticPageController@about')->name('about');
+Route::get('/{type}/{id}', 'catalog\CategoryController@index')->name('category');
+Route::post('/search/result', 'catalog\SearchController@search')->name('search');
 Auth::routes();
 
 Route::group([
