@@ -8,7 +8,7 @@
   <nav id="sidebar" class="sidebar-wrapper">
     <div class="sidebar-content">
       <div class="sidebar-brand">
-        <a href="" class="text-center"><img class="sidebar-img" src="/images/logo.png" alt=""></a>
+        <a href="" class="text-center"><img class="sidebar-img" src="{{asset('images/'.$config['logo'])}}" alt=""></a>
         <div id="close-sidebar">
           <i class="fas fa-times"></i>
         </div>
@@ -54,7 +54,7 @@
                   <a href="">Products</a>
                 </li>
                 <li>
-                  <a href="#">Categories</a>
+                  <a href="{{ route('admin.category.details',array('session_id'=>session()->getId())) }}">Categories</a>
                 </li>
               </ul>
             </div>
@@ -82,7 +82,7 @@
             <div class="sidebar-submenu">
               <ul>
                 <li>
-                  <a href="#">Config</a>
+                  <a href="{{ route('admin.config',array('session_id'=>session()->getId())) }}">Config</a>
                 </li>
               </ul>
             </div>

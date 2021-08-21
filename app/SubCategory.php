@@ -14,8 +14,8 @@ class SubCategory extends Model
          'visibility',
     ];
 
-    function categories() {
-        return $this->belongsTo('App\Category','parent_id','entity_id')->orderBy('position');
+    function category() {
+        return $this->belongsTo('App\Category','parent_id','entity_id');
     }
 
     function subSubCategories() {

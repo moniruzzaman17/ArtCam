@@ -47,12 +47,14 @@ $("#show-sidebar").click(function() {
 window.addEventListener('online', function(e) {
   // document.getElementById('indicator').innerHTML = 'online';
   $('.internet-availablity').html('');
+  console.log("online");
 });
 
 window.addEventListener('offline', function(e) {
   // document.getElementById('indicator').innerHTML = 'offline';
   $('.internet-availablity').html('<marquee class="border border-danger">No Internet Connection!! Please connect to internet for better performance</marquee>');
 
+  console.log("off line");
 });
 
 // admin user grid filter
@@ -62,4 +64,23 @@ $('#adminUserGridSearchBox').keyup( function() {
   $(".adminUserGridTable tbody tr").filter(function() {
     $(this).toggle($(this).text().toLowerCase().indexOf(keyword) > -1)
   });
+});
+
+// config page editable icon click event
+
+$(window).click(function() {
+  if ($('.inputText').hasClass('editable')) {
+    $('.inputText').removeClass('editable'); 
+    $('.inputText').prop('readonly', true);
+  }
+});
+
+$(document).on('click', '.editIcon', function(e) {
+  e.stopPropagation();
+  $(this).parent().parent().siblings().removeAttr('readonly'); 
+  $(this).parent().parent().siblings().addClass('editable');
+});
+
+$(document).on('click', '.inputText', function(e) {
+  e.stopPropagation();
 });

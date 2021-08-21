@@ -43,7 +43,7 @@ class AppServiceProvider extends ServiceProvider
                 'about' => $about
            );
         $view->with('config', $config); 
-        $view->with('categories', Category::with('subCategories')->get()); 
+        $view->with('categories', Category::with('subCategories')->where('visibility',1)->orderBy('position','asc')->get()); 
       });
     }
 }

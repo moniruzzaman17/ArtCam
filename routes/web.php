@@ -28,7 +28,7 @@ Route::group([
 
         Route::group(['middleware' => ['admin.route.session']], function () {
             Route::get('admin/key/{session_id}', 'admin\IndexController@index')->name('admin.home');
-            
+
             Route::group([
                 'prefix' => 'user'], function () {
                     Route::get('user_grid/key/{session_id}', 'admin\adminuser\AdminUserGridController@index')->name('admin.user.grid');
@@ -56,5 +56,60 @@ Route::group([
                     Route::post('roles/id/{role_id}/details/key/{session_id}', 'admin\adminuser\rolepermission\RolepermissionController@rolesUpdate');
 
                 });
+            Route::group([
+                'prefix' => 'config'], function () {
+                    Route::get('details/key/{session_id}', 'admin\config\ConfigController@index')->name('admin.config');
+                    Route::post('details/key/{session_id}', 'admin\config\ConfigController@save');
+                });
+            Route::group([
+                'prefix' => 'catalog'], function () {
+                    // Route::get('product_grid/key/{session_id}', 'admin\catalog\ProductGridController@index')->name('admin.product.grid');
+                    // Route::post('product_grid/key/{session_id}', 'admin\catalog\ProductGridController@removeProduct');
+                    //         // add product route
+                    // Route::get('add_product/key/{session_id}', 'admin\catalog\AddProductController@index')->name('admin.product.add');
+
+                    // Route::post('add_product/key/{session_id}', 'admin\catalog\AddProductController@storeSimpleProduct')->name('admin.product.add');
+
+                    // Route::get('add_config_product/key/{session_id}', 'admin\catalog\AddProductController@showConfigForm')->name('admin.config.product.add');
+
+                    // Route::post('add_product/key/{session_id}', 'admin\catalog\AddProductController@storeSimpleProduct')->name('admin.product.add.action');
+                    //         // update product route
+                    // Route::get('update_product/id/{id}/key/{session_id}', 'admin\catalog\UpdateProductController@index')->name('admin.product.update');
+                    // Route::get('remove/product/media/id/{id}/key/{session_id}', 'admin\catalog\UpdateProductController@removeProductMedia')->name('admin.pmedia.remove');
+
+                    // Route::post('update_product/id/{id}/key/{session_id}', 'admin\catalog\UpdateProductController@update')->name('admin.product.update.action');
+
+                    Route::get('category/key/{session_id}', 'admin\catalog\category\CategoryController@index')->name('admin.category.details');
+
+                    Route::post('category/root/add/key/{session_id}', 'admin\catalog\category\CategoryController@addRootCategory')->name('admin.rootcategory.add');
+
+                    Route::post('category/root/update/key/{session_id}', 'admin\catalog\category\CategoryController@updateCategory')->name('admin.category.update');
+
+                    Route::post('subcategory/update/key/{session_id}', 'admin\catalog\category\CategoryController@updateSubCategory')->name('admin.subcategory.update');
+
+                    Route::post('subcategory/add/key/{session_id}', 'admin\catalog\category\CategoryController@addSubCategory')->name('admin.subcategory.add');
+                });
         });
     });
+
+Route::post('/sort/mother/category', 'admin\catalog\category\CategoryController@sortMotherCat');
+
+Route::post('/category/status/change/disable', 'admin\catalog\category\CategoryController@changeVisibilityDisable');
+
+Route::post('/category/status/change/enable', 'admin\catalog\category\CategoryController@changeVisibilityEnable');
+
+Route::post('/category/delete', 'admin\catalog\category\CategoryController@deleteCategory');
+
+Route::get('/category/details/{catID}', 'admin\catalog\category\CategoryController@showCategoryDetail');
+
+
+
+Route::post('/sort/sub/category', 'admin\catalog\category\CategoryController@sortSubCat');
+
+Route::get('/subcategory/details/{subCatID}', 'admin\catalog\category\CategoryController@showSubCategoryDetail');
+
+Route::post('/subcategory/status/change/disable', 'admin\catalog\category\CategoryController@changeSubVisibilityDisable');
+
+Route::post('/subcategory/status/change/enable', 'admin\catalog\category\CategoryController@changeSubVisibilityEnable');
+
+Route::post('/subcategory/delete', 'admin\catalog\category\CategoryController@deleteSubCategory');

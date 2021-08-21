@@ -1,0 +1,142 @@
+.category-wrapper, .sub-category-wrapper{
+	width: 100%;
+	background: #F8F8F8;
+	border: 1px solid #e3e3e3;
+	padding: 5px;
+	.cat-list{
+		margin-left: 22px;
+		position: relative;
+		&:before{
+			position: absolute;
+			content: "";
+			left: -15px;
+			top: 13px;
+			width: 1px;
+			bottom: 10px;
+			background: #e3e3e3;
+		}
+		.cat-title{ 
+			position: relative;
+			margin: 0;
+			&:before{
+				position: absolute;
+				content: "";
+				left: -15px;
+				top: 12px;
+				width: 12px;
+				height: 1px;
+				background: #e3e3e3;
+			}
+		}
+		#motherCatSortable { 
+			list-style-type: none;
+			padding-left: 0;
+			padding: 15px;
+			margin-bottom: 0;
+			padding-bottom: 0;
+			li { 
+				padding-left: 0;
+				cursor: pointer;
+				transition:0.2s;
+				font-size: 16px;
+				position: relative;
+				&:hover{
+					color: red;
+				} 
+				&:before{
+					position: absolute;
+					content: "";
+					left: -30px;
+					top: 13px;
+					width: 25px;
+					height: 1px;
+					background: #e3e3e3;
+				}
+				span { 
+					position: absolute; 
+					margin-left: -1.3em; 
+				}
+			}
+		}
+	}
+	.sub-cat-list{
+		margin-left: 22px;
+		position: relative;
+		&:before{
+			position: absolute;
+			content: "";
+			left: -15px;
+			top: 13px;
+			width: 1px;
+			bottom: 10px;
+			background: #e3e3e3;
+		}
+		.cat-title{ 
+			position: relative;
+			margin: 0;
+			&:before{
+				position: absolute;
+				content: "";
+				left: -15px;
+				top: 12px;
+				width: 12px;
+				height: 1px;
+				background: #e3e3e3;
+			}
+		}
+		#subCatSortable { 
+			list-style-type: none;
+			padding-left: 0;
+			padding: 15px;
+			margin-bottom: 0;
+			padding-bottom: 0;
+			li { 
+				padding-left: 0;
+				cursor: pointer;
+				transition:0.2s;
+				font-size: 16px;
+				position: relative;
+				&:hover{
+					color: red;
+				} 
+				&:before{
+					position: absolute;
+					content: "";
+					left: -30px;
+					top: 13px;
+					width: 25px;
+					height: 1px;
+					background: #e3e3e3;
+				}
+				span { 
+					position: absolute; 
+					margin-left: -1.3em; 
+				}
+			}
+		}
+	}
+}
+.eye-open, .sub-eye-open{
+	position: absolute;
+	z-index: 999;
+	right: 0;
+	color: #B5BCCC;
+}
+.eye-close, .sub-eye-close {
+	position: absolute;
+	z-index: 999;
+	right: 0;
+	color: #FF9999;
+}
+.delete-cat {
+	position: absolute;
+	z-index: 999;
+	right: 28px;
+	color: #FF9999;
+}
+.delete-subcat {
+	position: absolute;
+	z-index: 999;
+	right: 28px;
+	color: #FF9999;
+}

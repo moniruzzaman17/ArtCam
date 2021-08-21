@@ -817,3 +817,189 @@ body {
   padding-top: 21px;
 }
 
+.category-wrapper,
+.sub-category-wrapper {
+  width: 100%;
+  background: #F8F8F8;
+  border: 1px solid #e3e3e3;
+  padding: 5px;
+}
+
+.category-wrapper .cat-list,
+.sub-category-wrapper .cat-list {
+  margin-left: 22px;
+  position: relative;
+}
+
+.category-wrapper .cat-list:before,
+.sub-category-wrapper .cat-list:before {
+  position: absolute;
+  content: "";
+  left: -15px;
+  top: 13px;
+  width: 1px;
+  bottom: 10px;
+  background: #e3e3e3;
+}
+
+.category-wrapper .cat-list .cat-title,
+.sub-category-wrapper .cat-list .cat-title {
+  position: relative;
+  margin: 0;
+}
+
+.category-wrapper .cat-list .cat-title:before,
+.sub-category-wrapper .cat-list .cat-title:before {
+  position: absolute;
+  content: "";
+  left: -15px;
+  top: 12px;
+  width: 12px;
+  height: 1px;
+  background: #e3e3e3;
+}
+
+.category-wrapper .cat-list #motherCatSortable,
+.sub-category-wrapper .cat-list #motherCatSortable {
+  list-style-type: none;
+  padding-left: 0;
+  padding: 15px;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.category-wrapper .cat-list #motherCatSortable li,
+.sub-category-wrapper .cat-list #motherCatSortable li {
+  padding-left: 0;
+  cursor: pointer;
+  transition: 0.2s;
+  font-size: 16px;
+  position: relative;
+}
+
+.category-wrapper .cat-list #motherCatSortable li:hover,
+.sub-category-wrapper .cat-list #motherCatSortable li:hover {
+  color: red;
+}
+
+.category-wrapper .cat-list #motherCatSortable li:before,
+.sub-category-wrapper .cat-list #motherCatSortable li:before {
+  position: absolute;
+  content: "";
+  left: -30px;
+  top: 13px;
+  width: 25px;
+  height: 1px;
+  background: #e3e3e3;
+}
+
+.category-wrapper .cat-list #motherCatSortable li span,
+.sub-category-wrapper .cat-list #motherCatSortable li span {
+  position: absolute;
+  margin-left: -1.3em;
+}
+
+.category-wrapper .sub-cat-list,
+.sub-category-wrapper .sub-cat-list {
+  margin-left: 22px;
+  position: relative;
+}
+
+.category-wrapper .sub-cat-list:before,
+.sub-category-wrapper .sub-cat-list:before {
+  position: absolute;
+  content: "";
+  left: -15px;
+  top: 13px;
+  width: 1px;
+  bottom: 10px;
+  background: #e3e3e3;
+}
+
+.category-wrapper .sub-cat-list .cat-title,
+.sub-category-wrapper .sub-cat-list .cat-title {
+  position: relative;
+  margin: 0;
+}
+
+.category-wrapper .sub-cat-list .cat-title:before,
+.sub-category-wrapper .sub-cat-list .cat-title:before {
+  position: absolute;
+  content: "";
+  left: -15px;
+  top: 12px;
+  width: 12px;
+  height: 1px;
+  background: #e3e3e3;
+}
+
+.category-wrapper .sub-cat-list #subCatSortable,
+.sub-category-wrapper .sub-cat-list #subCatSortable {
+  list-style-type: none;
+  padding-left: 0;
+  padding: 15px;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.category-wrapper .sub-cat-list #subCatSortable li,
+.sub-category-wrapper .sub-cat-list #subCatSortable li {
+  padding-left: 0;
+  cursor: pointer;
+  transition: 0.2s;
+  font-size: 16px;
+  position: relative;
+}
+
+.category-wrapper .sub-cat-list #subCatSortable li:hover,
+.sub-category-wrapper .sub-cat-list #subCatSortable li:hover {
+  color: red;
+}
+
+.category-wrapper .sub-cat-list #subCatSortable li:before,
+.sub-category-wrapper .sub-cat-list #subCatSortable li:before {
+  position: absolute;
+  content: "";
+  left: -30px;
+  top: 13px;
+  width: 25px;
+  height: 1px;
+  background: #e3e3e3;
+}
+
+.category-wrapper .sub-cat-list #subCatSortable li span,
+.sub-category-wrapper .sub-cat-list #subCatSortable li span {
+  position: absolute;
+  margin-left: -1.3em;
+}
+
+.eye-open,
+.sub-eye-open {
+  position: absolute;
+  z-index: 999;
+  right: 0;
+  color: #B5BCCC;
+}
+
+.eye-close,
+.sub-eye-close {
+  position: absolute;
+  z-index: 999;
+  right: 0;
+  color: #FF9999;
+}
+
+.delete-cat {
+  position: absolute;
+  z-index: 999;
+  right: 28px;
+  color: #FF9999;
+}
+
+.delete-subcat {
+  position: absolute;
+  z-index: 999;
+  right: 28px;
+  color: #FF9999;
+}
+

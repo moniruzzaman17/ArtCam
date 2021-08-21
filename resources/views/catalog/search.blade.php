@@ -7,7 +7,7 @@
 	<div class="row w-100 m-auto product-card">
 	<i>{{$found}} result(s) found out of {{$total}}</i>
 		@foreach ($products as $key => $product)
-		<div class="col-sm-6 col-md-3">
+		<div class="col-sm-6 col-md-4">
 			<div class="card">
 				<img src="{{asset('medias/'.$product->medias[0]->image)}}">
 				<div class="card-content">

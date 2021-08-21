@@ -5,8 +5,9 @@
 @section('content')
 <div class="category-page p-4">
 	<div class="row w-100 m-auto product-card">
+		@if(count($products)>0)
 		@foreach ($products as $key => $product)
-		<div class="col-sm-6 col-md-3">
+		<div class="col-sm-6 col-md-4">
 			<div class="card">
 				<img src="{{asset('medias/'.$product->medias[0]->image)}}">
 				<div class="card-content">
@@ -21,6 +22,9 @@
 		<div class="product-pagination d-flex justify-content-center" id="product_default_page_pagination" style="margin-top: 40px;">
 			{{ $products->links() }}
 		</div>
+		@else
+		<h6>no item found</h6>
+		@endif
 	</div>
 </div>
 @endsection

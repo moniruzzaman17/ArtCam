@@ -37,13 +37,16 @@
 	@yield('admin_content')
 	{{-- loading javascript resources --}}
 	<script type="text/javascript" src="{{ asset('js/jquery-3.5.1.min.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('js/jquery-ui.min.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('js/popper.min.js') }}"></script>
+	{{-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script> --}}
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.13.2/TweenMax.min.js"></script>
 	<script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('js/fontawesome.all.min.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('js/bootstrap-touch-slider.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('js/owl.carousel.min.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('js/admin/custom.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('js/admin/ajax.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('js/admin/bootstrap-datepicker.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('js/bootstrap-toggle.min.js') }}"></script>
 

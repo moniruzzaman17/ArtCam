@@ -30,7 +30,7 @@
         <ul class="navbar-nav">
           @php $i=1; @endphp
           @foreach ($categories as $key => $category)
-          @if($category->subCategories)
+          @if(count($category->subCategories)>0)
           <li class="nav-item">
             <div class="nav-item-action">
               <a class="nav-link" href="{{route('category',["type"=>"category","id"=>$category->entity_id])}}">{{$category->name}}</a><span class="dropdown-toggle custom-toggler"></span>
@@ -40,7 +40,9 @@
                 <li class="nav-item">
                   <div class="nav-item-link">
                     @foreach ($category->subCategories as $key => $subCategory)
+                    @if($subCategory->visibility == 1)
                     <a class="nav-link" href="{{route('category',["type"=>"subcategory","id"=>$subCategory->entity_id])}}">{{$subCategory->name}}</a>
+                    @endif
                     @endforeach
                   </div>
                 </li>
@@ -50,7 +52,7 @@
           @else
           <li class="nav-item">
             <div class="nav-item-action">
-              <a class="nav-link" href="#">{{$category->name}}</a>
+              <a class="nav-link" href="{{route('category',["type"=>"category","id"=>$category->entity_id])}}">{{$category->name}}</a>
             </div>
           </li>
           @endif

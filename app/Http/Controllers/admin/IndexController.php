@@ -9,8 +9,7 @@ class IndexController extends Controller
 {
 	public function __construct()
 	{
-    	// check authenticated admin
-        // $this->middleware('admin.auth');
+        $this->middleware('admin.auth');
 	}
 
 	public function index()
