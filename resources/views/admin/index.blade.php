@@ -1,7 +1,7 @@
 @extends('admin.layouts.app')
 @section('title', __('Admin / artcam'))
 @section('admin_content')
-	<div class="page-wrapper chiller-theme toggled">
+<div class="page-wrapper chiller-theme toggled">
   <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
     <i class="fas fa-bars"></i>
   </a>
@@ -99,7 +99,7 @@
                   <span>Admin Users</span>
                 </li>
                 <li>
-                  <a href="">All Users</a>
+                  <a href="{{ route('admin.user.grid',array('session_id'=>session()->getId())) }}">All Users</a>
                 </li>
                 <li class="header-menu">
                   <span>Cash</span>
@@ -140,17 +140,21 @@
   <main class="admin page-content">
     <div class="container" style="max-width: 1620px;">
     	{{-- @include('admin.dashboard.dashboard') --}}
-    	this is dashboard
+      @if(Route::currentRouteName() == 'admin.home')
+      @include('admin.dashboard.dashboard')
+      @else
+      @yield('content')
+      @endif
     </div>
-  <!-- page-content" -->
-      <footer class="text-center" style="margin-top: 40px;">
-        <div class="mb-2">
-          <small>
-           {{ __('Copyright') }} © {{date("Y")}} {{ __('Md.Moniruzzaman. All Rights Reserved.') }}
-          </small>
-        </div>
-      </footer>
-  </main>
+    <!-- page-content" -->
+    <footer class="text-center" style="margin-top: 40px;">
+      <div class="mb-2">
+        <small>
+         {{ __('Copyright') }} © {{date("Y")}} {{ __('Md.Moniruzzaman. All Rights Reserved.') }}
+       </small>
+     </div>
+   </footer>
+ </main>
 </div>
 <!-- page-wrapper -->
 @endsection

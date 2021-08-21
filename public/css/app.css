@@ -4299,6 +4299,29 @@ html {
   display: block !important;
 }
 
+.grid-head {
+  display: inline-block;
+  width: 100%;
+}
+
+.head-content {
+  width: 100%;
+  text-align: right;
+  background: #f8f8f8;
+  border-bottom: 1px solid #e3e3e3;
+  border-top: 1px solid #e3e3e3;
+  padding: 1.3rem;
+}
+
+.admin-head-content {
+  width: 100%;
+  text-align: right;
+  background: #f8f8f8;
+  border-bottom: 1px solid #e3e3e3;
+  border-top: 1px solid #e3e3e3;
+  padding: 1.3rem;
+}
+
 .required:after {
   content: "*";
   color: #e02b27;
@@ -5082,6 +5105,11 @@ body {
 
 .chiller-theme .sidebar-footer > a:last-child {
   border-right: none;
+}
+
+.add-admin-user-form {
+  width: 50%;
+  padding-top: 21px;
 }
 
 section#particles-js {

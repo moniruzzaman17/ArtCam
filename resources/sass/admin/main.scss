@@ -5,6 +5,27 @@
 .stepActive{
 	display: block!important;
 }
+
+.grid-head {
+  display: inline-block;
+  width: 100%;
+}
+.head-content {
+  width: 100%;
+  text-align: right;
+  background: #f8f8f8;
+  border-bottom: 1px solid #e3e3e3;
+  border-top: 1px solid #e3e3e3;
+  padding: 1.3rem;
+}
+.admin-head-content {
+  width: 100%;
+  text-align: right;
+  background: #f8f8f8;
+  border-bottom: 1px solid #e3e3e3;
+  border-top: 1px solid #e3e3e3;
+  padding: 1.3rem;
+}
 .required {
 	&:after{
 		content:"*";

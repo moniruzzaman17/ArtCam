@@ -54,3 +54,12 @@ window.addEventListener('offline', function(e) {
   $('.internet-availablity').html('<marquee class="border border-danger">No Internet Connection!! Please connect to internet for better performance</marquee>');
 
 });
+
+// admin user grid filter
+$('#adminUserGridSearchBox').keyup( function() {
+  var keyword = $(this).val().toLowerCase();
+
+  $(".adminUserGridTable tbody tr").filter(function() {
+    $(this).toggle($(this).text().toLowerCase().indexOf(keyword) > -1)
+  });
+});
