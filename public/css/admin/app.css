@@ -9,6 +9,55 @@
   width: 100%;
 }
 
+.block {
+  float: left;
+  margin-top: 20px;
+  position: relative;
+  background: #31353D;
+  border-radius: 15px;
+  color: #fff;
+  width: 100%;
+  /*width: 300px;*/
+  margin-right: 1%;
+  /*min-width:300px;*/
+  height: 112px;
+  box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.3);
+  text-align: center;
+  overflow: hidden;
+  -webkit-backface-visibility: hidden;
+  border: solid 1px #000;
+}
+
+.box-title {
+  text-align: center;
+}
+
+.statusBox:not(:last-child) {
+  margin-right: 25px;
+}
+
+.heading {
+  height: 30px;
+  position: relative;
+  font-size: 14px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.13);
+  padding: 25px 0;
+  border-bottom: solid 1px;
+  color: white;
+  font-weight: bold;
+}
+
+.num {
+  position: relative;
+  font-size: 3em;
+  /*padding-top: 16px;*/
+}
+
+.green {
+  color: green;
+}
+
 .head-content {
   width: 100%;
   text-align: right;

@@ -63,10 +63,10 @@ Route::group([
                 });
             Route::group([
                 'prefix' => 'catalog'], function () {
-                    // Route::get('product_grid/key/{session_id}', 'admin\catalog\ProductGridController@index')->name('admin.product.grid');
+                    Route::get('product_grid/key/{session_id}', 'admin\catalog\ProductController@index')->name('admin.product.grid');
                     // Route::post('product_grid/key/{session_id}', 'admin\catalog\ProductGridController@removeProduct');
                     //         // add product route
-                    // Route::get('add_product/key/{session_id}', 'admin\catalog\AddProductController@index')->name('admin.product.add');
+                    Route::get('add_product/key/{session_id}', 'admin\catalog\ProductController@addProduct')->name('admin.product.add');
 
                     // Route::post('add_product/key/{session_id}', 'admin\catalog\AddProductController@storeSimpleProduct')->name('admin.product.add');
 
@@ -74,10 +74,16 @@ Route::group([
 
                     // Route::post('add_product/key/{session_id}', 'admin\catalog\AddProductController@storeSimpleProduct')->name('admin.product.add.action');
                     //         // update product route
-                    // Route::get('update_product/id/{id}/key/{session_id}', 'admin\catalog\UpdateProductController@index')->name('admin.product.update');
-                    // Route::get('remove/product/media/id/{id}/key/{session_id}', 'admin\catalog\UpdateProductController@removeProductMedia')->name('admin.pmedia.remove');
+                    Route::get('add/product/new/key/{session_id}', 'admin\catalog\ProductController@showAddProductForm')->name('admin.product.add');
 
-                    // Route::post('update_product/id/{id}/key/{session_id}', 'admin\catalog\UpdateProductController@update')->name('admin.product.update.action');
+                    Route::post('add/product/new/key/{session_id}', 'admin\catalog\ProductController@addNewProduct');
+
+                    Route::get('product/delete/{id}/key/{session_id}', 'admin\catalog\ProductController@deleteProduct')->name('admin.product.delete');
+
+
+                    Route::get('update_product/id/{id}/key/{session_id}', 'admin\catalog\ProductController@showUpdateProductForm')->name('admin.product.update');
+                    Route::post('update_product/id/{id}/key/{session_id}', 'admin\catalog\ProductController@updateProduct');
+                    // Route::get('remove/product/media/id/{id}/key/{session_id}', 'admin\catalog\UpdateProductController@removeProductMedia')->name('admin.pmedia.remove');
 
                     Route::get('category/key/{session_id}', 'admin\catalog\category\CategoryController@index')->name('admin.category.details');
 

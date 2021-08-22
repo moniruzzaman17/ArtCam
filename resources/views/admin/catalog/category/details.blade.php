@@ -139,7 +139,7 @@
 				</div>
 				<div class="sub-category-wrapper mt-3">
 					<h5>Sub Categories</h5>
-					<i class="ml-3 p-0 text-danger" style="font-size: 11px;">Drag Category to Change Position & click on eye to change status</i>
+					<i class="ml-3 p-0 text-danger" style="font-size: 11px;">Drag Sub-Category to Change Position & click on eye to change status</i>
 					<div class="sub-cat-list">
 						@include('admin.catalog.category.subcategorylist')
 					</div>

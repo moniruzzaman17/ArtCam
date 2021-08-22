@@ -8,7 +8,7 @@
   <nav id="sidebar" class="sidebar-wrapper">
     <div class="sidebar-content">
       <div class="sidebar-brand">
-        <a href="" class="text-center"><img class="sidebar-img" src="{{asset('images/'.$config['logo'])}}" alt=""></a>
+        <a href="{{ route('admin.home',array('session_id'=>session()->getId())) }}" class="text-center"><img class="sidebar-img" src="{{asset('images/'.$config['logo'])}}" alt=""></a>
         <div id="close-sidebar">
           <i class="fas fa-times"></i>
         </div>
@@ -30,7 +30,7 @@
             <span>General</span>
           </li>
           <li class="">
-            <a href="" class="click-without-refresh">
+            <a href="{{ route('admin.home',array('session_id'=>session()->getId())) }}" class="click-without-refresh">
               {{-- <i class="fa fa-tachometer-alt"></i> --}}
               <span>DASHBOARD</span>
               {{-- <span class="badge badge-pill badge-warning">New</span> --}}
@@ -51,7 +51,7 @@
               <ul>
                 <li>
                   {{-- <a href="{{ route('admin.product.grid',array('session_id'=>session()->getId())) }}">Products</a> --}}
-                  <a href="">Products</a>
+                  <a href="{{ route('admin.product.grid',array('session_id'=>session()->getId())) }}">Products</a>
                 </li>
                 <li>
                   <a href="{{ route('admin.category.details',array('session_id'=>session()->getId())) }}">Categories</a>

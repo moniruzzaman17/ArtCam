@@ -24,13 +24,13 @@ class CreateProductsTable extends Migration
             ->nullable()
             ->comment = 'SKU';
 
-            $table->integer('category_id')->unsigned()->nullable()
+            $table->text('category_id')->nullable()
             ->comment = 'Category ID';
 
-            $table->integer('sub_category_id')->unsigned()->nullable()
+            $table->text('sub_category_id')->nullable()
             ->comment = 'Category ID';
 
-            $table->integer('sub_sub_category_id')->unsigned()->nullable()
+            $table->text('sub_sub_category_id')->nullable()
             ->comment = 'Category ID';
 
             $table->text('meta_keyword')

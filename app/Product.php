@@ -18,6 +18,6 @@ class Product extends Model
     ];
 
     function medias() {
-        return $this->hasMany('App\ProductMediaGallery','product_id','entity_id')->orderBy('position');
+        return $this->hasMany('App\ProductMediaGallery','product_id','entity_id');
     }
 }

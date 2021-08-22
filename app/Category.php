@@ -14,6 +14,6 @@ class Category extends Model
     ];
 
     function subCategories() {
-        return $this->hasMany('App\SubCategory','parent_id','entity_id')->orderBy('position');
+        return $this->hasMany('App\SubCategory','parent_id','entity_id');
     }
 }

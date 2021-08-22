@@ -29,10 +29,10 @@ class CategoryController extends Controller
     public function index($type,$id)
     {
         if ($type == 'category') {
-            $products = Product::with('medias')->where('visibility',1)->where('category_id',$id)->paginate(30)->onEachSide(0);
+            $products = Product::with('medias')->where('visibility',1)->where('category_id', 'LIKE', '%'.$id.'%')->paginate(30)->onEachSide(0);
         }
         else{
-            $products = Product::with('medias')->where('visibility',1)->where('sub_category_id',$id)->paginate(30)->onEachSide(0);
+            $products = Product::with('medias')->where('visibility',1)->where('sub_category_id', 'LIKE', '%'.$id.'%')->paginate(30)->onEachSide(0);
         }
 
         // dd($config);
