@@ -12,5 +12,6 @@ class ProductMediaGallery extends Model
        'product_id',
        'sku',
        'image',
+       'file',
    ];
 }

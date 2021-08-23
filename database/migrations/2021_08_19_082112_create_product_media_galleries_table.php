@@ -30,6 +30,10 @@ class CreateProductMediaGalleriesTable extends Migration
             ->nullable()
             ->comment = 'Product Image';
 
+            $table->string('file',255)
+            ->nullable()
+            ->comment = 'Downloadable File';
+
             $table->integer('position')->unsigned()->default(0)->nullable()
             ->comment = 'Media Positon';
 

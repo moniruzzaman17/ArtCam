@@ -2,13 +2,13 @@
   <div class="container">
     <nav class="navbar-expand-lg navbar-dark">
       <div class="">
-        <ul class="custom-navbar d-flex flex-row justify-content-md-center justify-content-xl-end mb-0 list-unstyled">
+        <ul class="custom-navbar d-flex flex-row justify-content-sm-center justify-content-md-end justify-content-xl-end mb-0 list-unstyled">
           <li class="active">
             <a class="nav-link" href="{{route('about')}}">About Us</a>
           </li>
-          <li class="">
+          {{-- <li class="">
             <a class="nav-link" href="#">Privacy Policy</a>
-          </li>
+          </li> --}}
         </ul>
       </div>
     </nav>

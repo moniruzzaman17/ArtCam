@@ -17,6 +17,7 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('/about', 'staticpages\StaticPageController@about')->name('about');
 Route::get('/{type}/{id}', 'catalog\CategoryController@index')->name('category');
 Route::post('/search/result', 'catalog\SearchController@search')->name('search');
+
 Auth::routes();
 
 Route::group([
@@ -64,15 +65,9 @@ Route::group([
             Route::group([
                 'prefix' => 'catalog'], function () {
                     Route::get('product_grid/key/{session_id}', 'admin\catalog\ProductController@index')->name('admin.product.grid');
-                    // Route::post('product_grid/key/{session_id}', 'admin\catalog\ProductGridController@removeProduct');
-                    //         // add product route
+
                     Route::get('add_product/key/{session_id}', 'admin\catalog\ProductController@addProduct')->name('admin.product.add');
 
-                    // Route::post('add_product/key/{session_id}', 'admin\catalog\AddProductController@storeSimpleProduct')->name('admin.product.add');
-
-                    // Route::get('add_config_product/key/{session_id}', 'admin\catalog\AddProductController@showConfigForm')->name('admin.config.product.add');
-
-                    // Route::post('add_product/key/{session_id}', 'admin\catalog\AddProductController@storeSimpleProduct')->name('admin.product.add.action');
                     //         // update product route
                     Route::get('add/product/new/key/{session_id}', 'admin\catalog\ProductController@showAddProductForm')->name('admin.product.add');
 
@@ -83,7 +78,6 @@ Route::group([
 
                     Route::get('update_product/id/{id}/key/{session_id}', 'admin\catalog\ProductController@showUpdateProductForm')->name('admin.product.update');
                     Route::post('update_product/id/{id}/key/{session_id}', 'admin\catalog\ProductController@updateProduct');
-                    // Route::get('remove/product/media/id/{id}/key/{session_id}', 'admin\catalog\UpdateProductController@removeProductMedia')->name('admin.pmedia.remove');
 
                     Route::get('category/key/{session_id}', 'admin\catalog\category\CategoryController@index')->name('admin.category.details');
 
@@ -96,7 +90,7 @@ Route::group([
                     Route::post('subcategory/add/key/{session_id}', 'admin\catalog\category\CategoryController@addSubCategory')->name('admin.subcategory.add');
                 });
         });
-    });
+});
 
 Route::post('/sort/mother/category', 'admin\catalog\category\CategoryController@sortMotherCat');
 
@@ -119,3 +113,5 @@ Route::post('/subcategory/status/change/disable', 'admin\catalog\category\Catego
 Route::post('/subcategory/status/change/enable', 'admin\catalog\category\CategoryController@changeSubVisibilityEnable');
 
 Route::post('/subcategory/delete', 'admin\catalog\category\CategoryController@deleteSubCategory');
+
+Route::get('/download/raw/file', 'download\DownloadController@index');

@@ -13,7 +13,7 @@
 				<div class="card-content">
 					<a href="#">
 						<h6>{{$product->name}}</h6>
-						<a href="{{asset('medias/'.$product->medias[0]->image)}}" class="card-category" download>Download Now <i class="fas fa-download" aria-hidden="true"></i></a>
+						<a href="" class="card-category download" data="{{$product->entity_id}}">Download Now <i class="fas fa-download" aria-hidden="true"></i></a>
 					</a>
 				</div>
 			</div>

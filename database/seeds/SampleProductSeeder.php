@@ -27,8 +27,10 @@ class SampleProductSeeder extends Seeder
             $prod->save();
 
             $media->product_id = $i;
-            $media->image = 'sample'.$i++.'.jpg';
+            $media->image = 'sample'.$i.'.jpg';
+            $media->file = 'sample'.$i.'.jpg';
             $media->save();
+            $i++;
         }
     }
 }

@@ -75,6 +75,14 @@
 							</div>
 						</div>
 						<div class="form-group row">
+							<label for="inputName" class="col-sm-4 col-form-label text-right required">Downloadable File</label>
+							<div class="col-sm-8">
+								<div class="input-group d-flex align-items-center">
+									<input type="file" name="downloadFile" required>
+								</div>
+							</div>
+						</div>
+						<div class="form-group row">
 							<label for="inputCat" class="col-sm-4 col-form-label text-right required">{{ __('Categories') }}</label>
 							<div class="col-sm-8">
 								<ul class="control list-unstyled product_cat_list">

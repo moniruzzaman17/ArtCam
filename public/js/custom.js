@@ -123,3 +123,22 @@ $(document).on('click', '.custom-toggler', function(e) {
   $(this).parent().siblings().show(); 
 });
 
+
+$(document).on('click', '.download', function(e) {
+    e.preventDefault();  //stop the browser from following
+    var url = '/download/raw/file';
+    var pid = $(this).attr('data');
+    $.ajax({
+      url: url,
+      type: 'GET',
+      data: { pid: pid },
+      success: function(data,response)
+      {
+        // window.location.href = data;
+        // console.log(data);
+        $('<a href="'+data+'" download></a>')[0].click();
+      }
+    });
+
+  });
+

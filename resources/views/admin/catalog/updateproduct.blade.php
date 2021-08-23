@@ -79,8 +79,19 @@
 							<div class="col-sm-8">
 								<input type="hidden" name="oldIMG" value="{{$product->medias[0]->image}}">
 								<div class="input-group d-flex align-items-center">
-									<img style="width: 50px;" src="{{asset('medias/'.$product->medias[0]->image)}}" alt="">
+									<img style="width: 50px;" src="{{asset('medias/'.$product->medias[0]->image)}}" alt=""> &nbsp;
 									<input type="file" name="file">
+								</div>
+							</div>
+						</div>
+						<div class="form-group row">
+							<label for="inputName" class="col-sm-4 col-form-label text-right required">Downloadable File</label>
+							<div class="col-sm-8">
+								<input type="hidden" name="oldFile" value="{{$product->medias[0]->file}}">
+								<div class="input-group d-flex align-items-center">
+									<div>{{$product->medias[0]->file}} &nbsp;</div>
+									{{-- <img style="width: 50px;" src="" alt=""> --}}
+									<input type="file" name="downloadFile">
 								</div>
 							</div>
 						</div>
