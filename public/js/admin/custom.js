@@ -75,6 +75,15 @@ $('#adminProductFilter').keyup( function() {
   });
 });
 
+// admin coupon grid filter
+$('#adminCouponFilter').keyup( function() {
+  var keyword = $(this).val().toLowerCase();
+
+  $(".adminCouponTable tbody tr").filter(function() {
+    $(this).toggle($(this).text().toLowerCase().indexOf(keyword) > -1)
+  });
+});
+
 // config page editable icon click event
 
 $(window).click(function() {

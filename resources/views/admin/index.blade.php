@@ -59,18 +59,20 @@
               </ul>
             </div>
           </li>
-          {{-- <li class="sidebar-dropdown">
+
+          <li class="sidebar-dropdown">
             <a href="#">
-              <span>CUSTOMERS</span>
+              {{-- <i class="fas fa-box"></i> --}}
+              <span>MARKETING</span>
             </a>
             <div class="sidebar-submenu">
               <ul>
                 <li>
-                  <a href="">All Customers</a>
+                  <a href="{{ route('admin.coupon.grid',array('session_id'=>session()->getId())) }}">Coupon</a>
                 </li>
               </ul>
             </div>
-          </li> --}}
+          </li>
           <li class="header-menu">
             <span>System</span>
           </li>

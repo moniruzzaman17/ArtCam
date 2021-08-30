@@ -1,15 +1,15 @@
 @extends('admin.index')
-@section('title', __('Admin Product Grid / ArtCam'))
-@section('body-class', 'artcam-admin-product-grid')
+@section('title', __('Admin Coupon Grid / ArtCam'))
+@section('body-class', 'artcam-coupon-grid')
 @section('content')
 <div class="grid-head">
 	<div style="height: 15px;"></div>
 	<div class="head-content row">
 		<div class="col-sm-4 text-left d-flex align-items-center">
-			<h5>{{ __('Products') }}</h5>
+			<h5>{{ __('Coupons') }}</h5>
 		</div>
 		<div class="col-sm-8">
-			<a href="{{ route('admin.product.add',array('session_id'=>session()->getId())) }}" class="btn action-button mr-auto"><i class="fas fa-plus" aria-hidden="true"></i>{{ __(' Add New Product') }}</a>
+			<a href="{{ route('admin.coupon.add',array('session_id'=>session()->getId())) }}" class="btn action-button mr-auto"><i class="fas fa-plus" aria-hidden="true"></i>{{ __(' Add New Coupon') }}</a>
 		</div>
 	</div>
 	<div style="height: 15px;"></div>
@@ -19,7 +19,7 @@
 			<div class="top">
 				<form action="" method="post">
 					<div class="input-group grid-search-input-group">
-						<input type="text" class="form-control search-box" id="adminProductFilter" placeholder="Start Typing to Search" aria-label="Recipient's username" aria-describedby="basic-addon2">
+						<input type="text" class="form-control search-box" id="adminCouponFilter" placeholder="Start Typing to Search" aria-label="Recipient's username" aria-describedby="basic-addon2">
 							{{-- <div class="input-group-append">
 								<span class="input-group-text" id="basic-addon">
 									<button type="submit" class="search-btn"><i class="fas fa-search" for="#butn"></i></button>
@@ -55,26 +55,30 @@
 	@endif
 	<div class="product-grid-body mt-2">
 		<div class="table-responsive">
-			<table class="table adminProductGridTable">
+			<table class="table adminCouponTable">
 				<thead>
 					<th>{{__('ID')}}</th>
-					<th>{{__('Thumb')}}</th>
 					<th>{{__('Name')}}</th>
-					<th>{{__('Downloadable File')}}</th>
-					<th>{{__('Meta Keyword')}}</th>
+					<th>{{__('Product ID')}}</th>
+					<th>{{__('Coupon Code')}}</th>
+					<th>{{__('Uses Limit')}}</th>
+					<th>{{__('Time Used')}}</th>
 					<th>{{__('Status')}}</th>
-					<th colspan="2" class="text-center">{{__('Action')}}</th>
+					<th>{{__('Expiration Date')}}</th>
+					<th>{{__('Action')}}</th>
 				</thead>
 				<tbody>
-					@foreach ($products as $key => $product)
+					@foreach ($coupons as $key => $coupon)
 					<tr>
-						<td>{{$product->entity_id}}</td>
-						<td><img style="width: 40px;" src="{{asset('medias/'.$product->medias[0]->image)}}" alt=""></td>
-						<td>{{$product->name}}</td>
-						<td>{{$product->medias[0]->file}}</td>
-						<td>{{$product->meta_keyword}}</td>
-						<td>{{$product->visibility==1 ?'Active':'Inactive'}}</td>
-						<td class="text-center"><a href="{{ route('admin.product.update',['session_id'=>session()->getId(), 'id'=>$product->entity_id]) }}">{{__('More')}}</a> | <a href="{{asset('medias/files/base/'.$product->medias[0]->file)}}" download>Download</a></td>
+						<td>{{$coupon->entity_id}}</td>
+						<td>{{$coupon->name}}</td>
+						<td>{{$coupon->product_id}}</td>
+						<td>{{$coupon->code}}</td>
+						<td>{{$coupon->uses_limit}}</td>
+						<td>{{$coupon->time_used}}</td>
+						<td>{{$coupon->visibility==1 ?'Active':'Inactive'}}</td>
+						<td>{{$coupon->expiration_date}}</td>
+						<td><a href="{{ route('admin.coupon.update',['session_id'=>session()->getId(), 'id'=>$coupon->entity_id]) }}">{{__('More')}}</a></td>
 					</tr>
 					@endforeach
 				</tbody>

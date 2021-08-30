@@ -89,6 +89,20 @@ Route::group([
 
                     Route::post('subcategory/add/key/{session_id}', 'admin\catalog\category\CategoryController@addSubCategory')->name('admin.subcategory.add');
                 });
+            Route::group([
+                'prefix' => 'coupon'], function () {
+                    Route::get('coupon_grid/key/{session_id}', 'admin\coupon\CouponController@index')->name('admin.coupon.grid');
+
+                    Route::get('update/{id}/key/{session_id}', 'admin\coupon\CouponController@updateForm')->name('admin.coupon.update');
+
+                    Route::post('update/{id}/key/{session_id}', 'admin\coupon\CouponController@update');
+
+                    Route::get('add/new/key/{session_id}', 'admin\coupon\CouponController@addnewForm')->name('admin.coupon.add');
+
+                    Route::post('add/new/key/{session_id}', 'admin\coupon\CouponController@addNew');
+
+                    Route::get('delete/{id}/key/{session_id}', 'admin\coupon\CouponController@delete')->name('admin.coupon.delete');
+                });
         });
 });
 

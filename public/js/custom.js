@@ -125,18 +125,54 @@ $(document).on('click', '.custom-toggler', function(e) {
 
 
 $(document).on('click', '.download', function(e) {
+  e.preventDefault();
+  var pid = $(this).attr('data');
+  $('.productID').val(pid);
+  $('#downloadwithCouponModal').modal('show');
+});
+
+$(document).on('click', '.verifiedDownloadBtn', function(e) {
     e.preventDefault();  //stop the browser from following
     var url = '/download/raw/file';
-    var pid = $(this).attr('data');
+    var pid = $(this).parent('.modal-footer').siblings('.modal-body').children('.form-group').children('.datarow').children('.productID').val();
+    var code = $(this).parent('.modal-footer').siblings('.modal-body').children('.form-group').children('.datarow').children('#CouponCode').val();
     $.ajax({
       url: url,
       type: 'GET',
-      data: { pid: pid },
+      data: { 
+        pid: pid, 
+        code: code 
+      },
       success: function(data,response)
       {
         // window.location.href = data;
         // console.log(data);
-        $('<a href="'+data+'" download></a>')[0].click();
+        // $('<a href="'+data+'" download></a>')[0].click();
+
+        $('#CouponCode').val('');
+
+        var counter = 4;
+
+        $("#success").html("Your download will start within "+counter+ " second(s). Thank You !").show();
+        var interval = setInterval(function() {
+          counter--;
+          $("#success").html("Your download will start within "+counter+ " second(s). Thank You !");
+          if (counter == 0) {
+            $('#downloadwithCouponModal').modal('hide');
+            $("#success").html('').hide();
+            clearInterval(interval);
+          }
+        }, 1000);
+
+        setTimeout( function(){
+          $('<a href="'+data.url+'" download></a>')[0].click();
+        }, 4000 );
+      },
+      error: function (jqXHR, exception) {
+        $('#CouponCode').val('');
+        // $("#warning").show();
+        $("#warning").html(jqXHR.responseJSON.failed).show().delay(3000).fadeOut();
+        console.log(jqXHR.responseJSON.failed);
       }
     });
 
