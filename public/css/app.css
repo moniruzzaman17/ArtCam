@@ -5456,7 +5456,7 @@ section#particles-js h1 {
 
 .product-card .card {
   position: relative;
-  width: 350px;
+  width: 100%;
   height: 350px;
   margin: 10px;
   overflow: hidden;

@@ -136,15 +136,19 @@ $(document).on('click', '.verifiedDownloadBtn', function(e) {
     var url = '/download/raw/file';
     var pid = $(this).parent('.modal-footer').siblings('.modal-body').children('.form-group').children('.datarow').children('.productID').val();
     var code = $(this).parent('.modal-footer').siblings('.modal-body').children('.form-group').children('.datarow').children('#CouponCode').val();
-    $.ajax({
-      url: url,
-      type: 'GET',
-      data: { 
-        pid: pid, 
-        code: code 
-      },
-      success: function(data,response)
-      {
+    if (code === '' || code == null) {
+      $("#warning").html("<i class='fas fa-exclamation-triangle'></i> Coupon code cannot be empty!").show().delay(3000).fadeOut();
+    }
+    else{
+      $.ajax({
+        url: url,
+        type: 'GET',
+        data: { 
+          pid: pid, 
+          code: code 
+        },
+        success: function(data,response)
+        {
         // window.location.href = data;
         // console.log(data);
         // $('<a href="'+data+'" download></a>')[0].click();
@@ -153,10 +157,10 @@ $(document).on('click', '.verifiedDownloadBtn', function(e) {
 
         var counter = 4;
 
-        $("#success").html("Your download will start within "+counter+ " second(s). Thank You !").show();
+        $("#success").html("<i class='fas fa-check'></i> Your download will start within "+counter+ " second(s). Thank You !").show();
         var interval = setInterval(function() {
           counter--;
-          $("#success").html("Your download will start within "+counter+ " second(s). Thank You !");
+          $("#success").html("<i class='fas fa-check'></i> Your download will start within "+counter+ " second(s). Thank You !");
           if (counter == 0) {
             $('#downloadwithCouponModal').modal('hide');
             $("#success").html('').hide();
@@ -171,10 +175,11 @@ $(document).on('click', '.verifiedDownloadBtn', function(e) {
       error: function (jqXHR, exception) {
         $('#CouponCode').val('');
         // $("#warning").show();
-        $("#warning").html(jqXHR.responseJSON.failed).show().delay(3000).fadeOut();
+        $("#warning").html("<i class='fas fa-exclamation-triangle'></i> "+jqXHR.responseJSON.failed).show().delay(3000).fadeOut();
         console.log(jqXHR.responseJSON.failed);
       }
     });
+    }
 
   });
 
