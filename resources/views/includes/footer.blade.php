@@ -3,13 +3,13 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12 col-md-6">
-					<h6>About</h6>
+					<h6 class="text-center">About</h6>
 					<p class="text-justify">{!! $config['about'] !!}</p>
 				</div>
 
 				<div class="col-xs-6 col-md-3">
-					<h6>Categories</h6>
-					<ul class="footer-links">
+					<h6 class="text-center">Categories</h6>
+					<ul class="footer-links text-center">
 						@foreach ($categories as $key => $category)
 						<li><a href="{{route('category',["type"=>"category","id"=>$category->entity_id])}}">{{$category->name}}</a></li>
 						@endforeach
@@ -17,8 +17,8 @@
 				</div>
 
 				<div class="col-xs-6 col-md-3">
-					<h6>Quick Links</h6>
-					<ul class="footer-links">
+					<h6 class="text-center">Quick Links</h6>
+					<ul class="footer-links text-center">
 						<li><a href="{{route('about')}}">About Us</a></li>
 					</ul>
 				</div>
