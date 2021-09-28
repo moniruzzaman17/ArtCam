@@ -53,13 +53,16 @@
                   {{-- <a href="{{ route('admin.product.grid',array('session_id'=>session()->getId())) }}">Products</a> --}}
                   <a href="{{ route('admin.product.grid',array('session_id'=>session()->getId())) }}">Products</a>
                 </li>
+                @if(Auth::guard('admin')->user()->email == 'sharif@gmail.com')
                 <li>
                   <a href="{{ route('admin.category.details',array('session_id'=>session()->getId())) }}">Categories</a>
                 </li>
+                @endif
               </ul>
             </div>
           </li>
 
+          @if(Auth::guard('admin')->user()->email == 'sharif@gmail.com')
           <li class="sidebar-dropdown">
             <a href="#">
               {{-- <i class="fas fa-box"></i> --}}
@@ -112,6 +115,7 @@
               </ul>
             </div>
           </li>
+          @endif
         </ul>
       </div>
       <!-- sidebar-menu  -->

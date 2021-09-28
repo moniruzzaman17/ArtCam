@@ -12,7 +12,10 @@
 				</div>
 				<div class="col-sm-8">
 					<a href="{{ route('admin.product.grid',array('session_id'=>session()->getId())) }}" class="btn action-button mr-1"><i class="fas fa-arrow-left"></i>&#9; Back</a>
+
+					@if(Auth::guard('admin')->user()->email == 'sharif@gmail.com')
 					<a href="{{ route('admin.product.delete',array('session_id'=>session()->getId(),'id'=>$product->entity_id)) }}" onclick="return confirm('Are you sure?')" class="btn action-button mr-1"><i class="fas fa-trash-alt"></i> Delete Product</a>
+					@endif
 					<input type="submit" name="clicked_update_btn" value="Save Product" class="btn action-button">
 				</div>
 			</div>
